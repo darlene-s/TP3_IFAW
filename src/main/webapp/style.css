@@ -1,0 +1,38 @@
+.navbar {
+    background-color: #2D4583;
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #3455a8;
+}
+
+#howToContainer {
+    background-color: #2D4583;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12pt;
+   
+}
+#contactInfo{
+    background-color: #2D4583;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+   
+}
+/*Question 5 TP1*/
+/*label {
+    font-weight: bold;
+    font-size: 12pt;
+    font-family: Arial, sans-serif;
+}
+
+label[for="Email"] {
+    color: red;
+} */
