@@ -1,4 +1,4 @@
-package servlets;
+package persistant;
 
 public class FactorialCalculator {
     public static String calculateFactorial(int value) {
@@ -6,7 +6,7 @@ public class FactorialCalculator {
             return "Invalid input. Please enter a non-negative number.";
         }
 
-        int result = 1;
+        long result = 1;
         StringBuilder steps = new StringBuilder("Calculation steps:<br>");
 
         for (int i = 1; i <= value; i++) {

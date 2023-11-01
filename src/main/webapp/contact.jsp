@@ -1,11 +1,18 @@
 <%@ include file="navbar.jsp"%>
 <div class="container pt-2 pb-5">
-	<form class="container pt-2 pb-5" action="afficherContact.jsp"
+	<form class="container pt-2 pb-5" action="RegisterServlet"
 		method="post">
 		<fieldset>
 			<legend class="mt-4">
 				<strong>Dauphine Contact Form : Add a contact</strong>
 			</legend>
+			
+			<c:if test="${ not empty err}">
+				<div class="alert alert-dismissible alert-danger">
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					<strong><c:out value="${ err }"></c:out></strong>
+				</div>
+			</c:if>
 			<div class="form-group">
 				<label class="col-form-label mt-4" for="LastName">Last Name</label>
 				<input type="text" name="lastName" class="form-control"
@@ -35,7 +42,7 @@
 					aria-describedby="emailHelp" placeholder="Enter email" required>
 
 				<label for="PhoneNumber" class="form-label mt-4">Phone
-					number</label> <input name="phone" type="tel" class="form-control"
+					number</label> <input name="phoneNumber" type="tel" class="form-control"
 					id="PhoneNumber" placeholder="Enter phone number" required>
 					
 				<label for="Password" class="form-label mt-4">Password</label> <input

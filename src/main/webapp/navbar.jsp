@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,16 +36,33 @@
 					<li class="nav-item"><a class="nav-link"
 						href="https://my.dauphine.fr">MyDauphine</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<%=request.getContextPath() + "/contact.jsp#howToContainer"%>">Contact
+						href="<%=request.getContextPath() + "/RegisterServlet"%>">Contact
 							Form</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<%=request.getContextPath() + "/factorial.jsp"%>">Calculate
+						href="<%=request.getContextPath() + "/FactorialServlet"%>">Calculate
 							factorial</a></li>
-
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath() + "/CookieServlet"%>">Cookie</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath() + "/connectedUsers.jsp"%>">Connected Users</a></li>
+					<c:if test="${!empty user}">
+					<li class="nav-item"><a class="nav-link"
+						href="<%=request.getContextPath() + "/AfficherContactServlet"%>">Mon profil</a></li>
+					</c:if>
 				</ul>
 			</div>
-			<a class="btn btn-secondary  my-sm-3" type="submit" href="login.jsp"
-				role="button">Login</a>
+			
+			<a class="btn btn-secondary  my-sm-3" type="submit"
+			href="<%=request.getContextPath() + "/LoginServlet"%>" role="button">Log
+			In</a>
+		
+			
+			<c:if test="${!empty user}">
+			<a class="btn btn-secondary  my-sm-3" type="submit"
+			href="<%=request.getContextPath() + "/LogoutServlet"%>" role="button">Log
+			out</a>
+			</c:if>
+			
 		</div>
 
 	</nav>

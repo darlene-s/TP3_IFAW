@@ -1,13 +1,19 @@
 <%@ include file="navbar.jsp"%>
 <%@ include file="header.jsp"%>
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="container pt-2 pb-5">
-    <form class="container pt-2 pb-5" action="affichage.jsp" method="post">
+    <form class="container pt-2 pb-5" action="LoginServlet" method="post">
         <fieldset>
             <legend class="mt-4">
                 <strong>Login</strong>
             </legend>
+            <c:if test="${ not empty error}">
+					<div class="alert alert-dismissible alert-danger">
+						<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+						<strong><c:out value="${ error }"></c:out></strong>
+					</div>
+			</c:if>
             <div class="form-group">
                 <label class="col-form-label mt-4" for="FirstName">First Name</label>
                 <input type="text" name="firstName" class="form-control" placeholder="Enter your First name" id="FirstName" maxlength="10" required>
@@ -17,31 +23,5 @@
             <button type="submit" class="btn btn-success mt-4">Login</button>
             <input type="reset" class="btn btn-warning mt-4" value="Reset">
         </fieldset>
-        
-        <%
-            // Validate credentials
-            String enteredFirstName = request.getParameter("firstName");
-            String enteredPassword = request.getParameter("password");
-            
-            if (session != null && session.getAttribute("firstName") != null) {
-                // Session already exists, redirect
-                response.sendRedirect("affichage.jsp");
-            } else {
-                // Validate entered credentials
-                String storedFirstName = "example"; // Replace with your actual stored value
-                String storedPassword = "password"; // Replace with your actual stored value
-                
-                if (enteredFirstName != null && enteredFirstName.equals(storedFirstName) &&
-                    enteredPassword != null && enteredPassword.equals(storedPassword)) {
-                    // Credentials match, create session and redirect
-                    session = request.getSession(true);
-                    session.setAttribute("firstName", enteredFirstName);
-                    response.sendRedirect("affichage.jsp");
-                } else {
-                    // Credentials don't match, display error message
-                    out.println("Invalid credentials. Please try again.");
-                }
-            }
-        %>
     </form>
 </div>
